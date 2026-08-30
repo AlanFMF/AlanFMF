@@ -18,7 +18,7 @@ Rodou como piloto fechado por 15 dias em produção, e os números são medidos,
 - **[dbo-idle-showcase](https://github.com/AlanFMF/dbo-idle-showcase)** — estudo de caso: arquitetura, decisões técnicas, infraestrutura, métricas reais e trechos do código de produção.
 - **[dbo-idle-play](https://github.com/AlanFMF/dbo-idle-play)** — a versão jogável, convertida para rodar inteira no navegador depois que o servidor foi desligado. **[Jogar](https://alanfmf.github.io/dbo-idle-play/play/)**
 
-O que aprendi ali não foi só escrever o jogo: foi descobrir que o servidor precisa desconfiar do cliente, que um WebSocket ocioso morre em 60 segundos se ninguém configurar o proxy, e que um backup sem teste de restauração é só uma esperança.
+Foi o projeto em que mais aprendi, principalmente na parte de operar — que é a que não dá para simular sozinho no computador de casa.
 
 ## Stack
 
@@ -34,4 +34,4 @@ Bacharel em Sistemas de Informação pela Uniube. Cursando duas pós-graduaçõe
 
 ## Contato
 
-[LinkedIn](https://www.linkedin.com/in/alanfmf) · Uberlândia, MG
+[LinkedIn](https://www.linkedin.com/in/alanfmf) · alan.fmf@hotmail.com · (34) 99779-4579 · Uberlândia, MG
