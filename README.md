@@ -1,6 +1,6 @@
 # Alan Fabrício de Morais Filho
 
-Desenvolvo aplicações web full stack em JavaScript e Node.js, com PostgreSQL, e cuido também da parte que costuma ficar de fora do portfólio: colocar no ar e manter funcionando. Em paralelo, curso duas pós-graduações — em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital — e levo cada uma até projeto publicado, não só até o certificado.
+Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando principalmente com JavaScript, Node.js, PostgreSQL e SQL. Também atuo com dados, inteligência artificial e infraestrutura, levando projetos da ideia à produção. Em paralelo, curso duas pós-graduações — em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital — e levo cada uma até projeto publicado, não só até o certificado.
 
 ## Desenvolvimento e infraestrutura — DBO IDLE
 
@@ -40,13 +40,14 @@ Onde cada pós aparece:
 
 ## Stack
 
-| | |
+| Área | Tecnologias |
 |---|---|
-| **Linguagens** | JavaScript · SQL · Python · Dart · PHP · C |
+| **Linguagens** | JavaScript · SQL · Python · PHP · Dart · C |
 | **Back-end** | Node.js · APIs REST · WebSocket · autenticação e sessões |
-| **Dados** | PostgreSQL · MySQL · modelagem e consultas · Power BI · pandas |
-| **Machine learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
-| **Infra** | Linux · Nginx · PM2 · HTTPS/Certbot · Git |
+| **Banco de Dados** | PostgreSQL · MySQL · modelagem e consultas SQL |
+| **Dados** | Power BI · pandas |
+| **Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
+| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Git |
 | **Front-end** | HTML · CSS · JavaScript (ES Modules) · Canvas 2D · Streamlit |
 
 ## Formação
