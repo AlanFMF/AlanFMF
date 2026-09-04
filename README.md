@@ -40,12 +40,14 @@ Onde cada pós aparece:
 
 ## Stack
 
-**Linguagens** JavaScript · SQL · Python · Dart · PHP · C
-**Back-end** Node.js · APIs REST · WebSocket · autenticação e sessões
-**Dados** PostgreSQL · MySQL · modelagem e consultas · Power BI · pandas
-**Machine learning** TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos
-**Infra** Linux · Nginx · PM2 · HTTPS/Certbot · Git
-**Front-end** HTML · CSS · JavaScript (ES Modules) · Canvas 2D · Streamlit
+| | |
+|---|---|
+| **Linguagens** | JavaScript · SQL · Python · Dart · PHP · C |
+| **Back-end** | Node.js · APIs REST · WebSocket · autenticação e sessões |
+| **Dados** | PostgreSQL · MySQL · modelagem e consultas · Power BI · pandas |
+| **Machine learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
+| **Infra** | Linux · Nginx · PM2 · HTTPS/Certbot · Git |
+| **Front-end** | HTML · CSS · JavaScript (ES Modules) · Canvas 2D · Streamlit |
 
 ## Formação
 
@@ -53,4 +55,4 @@ Bacharel em Sistemas de Informação pela Uniube. Cursando duas pós-graduaçõe
 
 ## Contato
 
-[LinkedIn](https://www.linkedin.com/in/alanfmf) · alan.fmf@hotmail.com · (34) 99779-4579 · Uberlândia, MG
+[LinkedIn](https://www.linkedin.com/in/alanfmf) · alan.fmf@hotmail.com · Uberlândia, MG
