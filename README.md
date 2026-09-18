@@ -42,9 +42,9 @@ Onde cada pós aparece:
 
 | Área | Tecnologias |
 |---|---|
-| **Linguagens** | JavaScript · SQL · Python · PHP · Dart · C |
+| **Linguagens** | JavaScript · Python · PHP · Dart · C |
 | **Back-end** | Node.js · APIs REST · WebSocket · autenticação e sessões |
-| **Banco de Dados** | PostgreSQL · MySQL · modelagem e consultas SQL |
+| **Banco de Dados** | SQL · PostgreSQL · MySQL · modelagem e consultas SQL |
 | **Dados** | Power BI · pandas |
 | **Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
 | **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Git |
