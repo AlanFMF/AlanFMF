@@ -52,7 +52,7 @@ Onde cada pós aparece:
 
 ## Formação
 
-Bacharel em Sistemas de Informação pela Uniube. Cursando duas pós-graduações, em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital, ambas com conclusão prevista para dezembro de 2026.
+Bacharel em Sistemas de Informação pela Uniube. Cursando duas pós-graduações, em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital.
 
 ## Contato
 
