@@ -51,7 +51,7 @@ Onde cada pós aparece:
 | **Banco de Dados** | SQL · PostgreSQL · MySQL · modelagem e consultas SQL |
 | **Dados** | Power BI · pandas |
 | **Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
-| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Git |
+| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Git · GitHub Actions · pytest |
 | **Front-end** | HTML · CSS · JavaScript (ES Modules) · Canvas 2D · Streamlit |
 
 ## Formação
