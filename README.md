@@ -44,6 +44,8 @@ Onde cada pós aparece:
 | Variância entre sementes tratada como resultado, não como detalhe | Seis defeitos documentados do dataset corrigidos e cobertos por teste |
 | Classificação multiclasse com F1 macro e teste de embaralhamento da ordem | Três protocolos de avaliação, com o vazamento entre treino e teste medido fluxo a fluxo |
 
+## Stack
+
 | Área | Tecnologias |
 |---|---|
 | **Linguagens** | JavaScript · Python · PHP · Dart · C |
