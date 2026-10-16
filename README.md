@@ -1,6 +1,27 @@
 # Alan Fabrício de Morais Filho
 
-Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando principalmente com JavaScript, Node.js, PostgreSQL e SQL. Também atuo com dados, inteligência artificial e infraestrutura, levando projetos da ideia à produção. Em paralelo, curso duas pós-graduações — em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital — e levo cada uma até projeto publicado, não só até o certificado.
+Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando principalmente com JavaScript/TypeScript, Node.js, PostgreSQL e SQL. Também atuo com dados, inteligência artificial e infraestrutura, levando projetos da ideia à produção. Em paralelo, curso duas pós-graduações — em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital — e levo cada uma até projeto publicado, não só até o certificado.
+
+| Projeto | O que é | Stack | Ver |
+|---|---|---|---|
+| **[Saldo](https://github.com/AlanFMF/Financeiro)** | Controle financeiro web e Android com assistente de IA e sincronização bancária | TypeScript · Fastify · PostgreSQL · React · Capacitor | [App](https://alanfmf.github.io/Financeiro/app/) · [APK](https://alanfmf.github.io/Financeiro/) |
+| **[DBO IDLE](https://github.com/AlanFMF/dbo-idle-showcase)** | RPG idle multiplayer que escrevi, publiquei e operei em VPS | Node.js · PostgreSQL · WebSocket · Nginx | [Jogar](https://alanfmf.github.io/dbo-idle-play/play/) |
+| **[DBO IDLE — dados](https://github.com/AlanFMF/dbo-idle-data)** | Consultas SQL sobre o banco de produção do jogo | PostgreSQL · SQL · Python · Docker | [Repositório](https://github.com/AlanFMF/dbo-idle-data) |
+| **[ElmanGuard](https://github.com/AlanFMF/elman-guard)** | Detecção de intrusões com rede recorrente de Elman, avaliada sem vazamento | Python · TensorFlow/Keras · Streamlit | [App](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/) |
+| **[Gestão de Tarefas](https://github.com/AlanFMF/app-gestao-tarefas-flutter)** | App de tarefas com autenticação e dados por usuário | Flutter · Dart · Firebase | [Repositório](https://github.com/AlanFMF/app-gestao-tarefas-flutter) |
+
+## Full stack — Saldo
+
+[![CI](https://github.com/AlanFMF/Financeiro/actions/workflows/ci.yml/badge.svg)](https://github.com/AlanFMF/Financeiro/actions/workflows/ci.yml)
+[![Android e Pages](https://github.com/AlanFMF/Financeiro/actions/workflows/android.yml/badge.svg)](https://github.com/AlanFMF/Financeiro/actions/workflows/android.yml)
+
+[Financeiro](https://github.com/AlanFMF/Financeiro) — controle de receitas e gastos que nasceu da minha planilha e virou um app que uso no dia a dia: no navegador, instalado como PWA ou como APK no Android. **[Abrir o app](https://alanfmf.github.io/Financeiro/app/)** (tem modo demonstração) · **[Baixar o APK](https://alanfmf.github.io/Financeiro/)**
+
+- **API em Node.js + TypeScript** com Fastify, validação com Zod, JWT, rate limit e PostgreSQL com migrações versionadas. Valores guardados em centavos inteiros, nunca em ponto flutuante.
+- **Assistente por chat e voz**: a pessoa escreve ou fala "gastei 45 no mercado e 12 de uber ontem" e os lançamentos entram categorizados. Cada usuário conecta a própria IA — Claude, ChatGPT ou Gemini — por *tool calling*, com a chave cifrada em AES-256-GCM; sem chave, um interpretador por regras resolve valores por extenso, datas relativas e parcelas.
+- **Sincronização com o banco via Open Finance**: uma tarefa agendada envia as transações com uma chave de escopo mínimo, e a API concilia com o que já foi lançado à mão, evitando duplicatas.
+- **Um código, três entregas**: React + Vite como PWA no GitHub Pages, o mesmo front empacotado com Capacitor em APK, e a API no Render com banco no Neon.
+- **109 testes** com Vitest sobre um Postgres em WebAssembly (PGlite), rodando no CI a cada push; o GitHub Actions também gera o APK e publica o site.
 
 ## Desenvolvimento e infraestrutura — DBO IDLE
 
@@ -17,7 +38,7 @@ Rodou como piloto fechado por 15 dias em produção, e os números são medidos,
 
 - **[dbo-idle-showcase](https://github.com/AlanFMF/dbo-idle-showcase)** — estudo de caso: arquitetura, decisões técnicas, infraestrutura, métricas reais e trechos do código de produção.
 - **[dbo-idle-play](https://github.com/AlanFMF/dbo-idle-play)** — a versão jogável, convertida para rodar inteira no navegador depois que o servidor foi desligado. **[Jogar](https://alanfmf.github.io/dbo-idle-play/play/)**
-- **[dbo-idle-data](https://github.com/AlanFMF/dbo-idle-data)** — consultas SQL sobre o banco do jogo.
+- **[dbo-idle-data](https://github.com/AlanFMF/dbo-idle-data)** — consultas SQL sobre o banco do jogo: economia, retenção, drops, pagamentos e integridade, sobre o schema real e dados sintéticos.
 
 ## Inteligência artificial e segurança — ElmanGuard
 
@@ -29,32 +50,28 @@ Rodou como piloto fechado por 15 dias em produção, e os números são medidos,
 O modelo é a parte fácil. O projeto é sobre saber se ele detecta alguma coisa de verdade:
 
 - **O protocolo de avaliação decide o número.** O mesmo modelo marca PR-AUC de 0,74 com split aleatório, 0,67 com split temporal sem vazamento e 0,34 quando os tipos de ataque são inéditos. No split aleatório, 66% das janelas de teste compartilham algum fluxo com o treino.
-- Medido **dentro de cada servidor**, onde a identidade do host não carrega informação, o desempenho diante de ataques inéditos some: quase todo o PR-AUC agregado era reconhecer *qual máquina* enviou a janela. Com tipos de ataque já vistos, a detecção dentro do host se sustenta (ROC-AUC de 0,82 a 0,93).
-- Uma **regressão logística vence as redes neurais nos três protocolos**. Com ataques inéditos, as quatro redes ficam dentro do próprio ruído entre sementes (desvio de 0,117 contra diferenças de 0,04 entre elas).
-- Na **classificação de 12 tipos de tráfego**, a Elman supera um MLP do mesmo tamanho (F1 macro de 0,71 contra 0,63). Mas embaralhar a ordem dos fluxos não a piora: a vantagem vem de compartilhar pesos ao longo da janela, não de memória.
-- Antes de reportar que a recorrência não ajuda, o experimento é **aferido numa sonda onde a ordem temporal é o único sinal**. A primeira configuração da rede ficava no acaso ali — teria produzido um resultado nulo confiante e falso. Com a configuração corrigida, ela chega a 0,985.
+- Medido **dentro de cada servidor**, o desempenho diante de ataques inéditos some: quase todo o PR-AUC agregado era reconhecer *qual máquina* enviou a janela.
+- Uma **regressão logística vence as redes neurais nos três protocolos**, e com ataques inéditos as quatro redes ficam dentro do próprio ruído entre sementes.
+- Antes de concluir que a recorrência não ajuda, o experimento é **aferido numa sonda onde a ordem temporal é o único sinal** — a primeira configuração teria produzido um resultado nulo confiante e falso.
 
-Onde cada pós aparece:
+Os detalhes — split cronológico, features que vazam o rótulo, defeitos do dataset corrigidos e cobertos por teste — estão no [README do projeto](https://github.com/AlanFMF/elman-guard).
 
-| Redes neurais | Segurança da informação |
-|---|---|
-| Rede de Elman em Keras, comparada com MLP e modelo linear sob orçamento de parâmetros equivalente | Fluxos agrupados por host monitorado, que é a visão real de quem opera um IDS |
-| Janelamento temporal, normalização causal e split cronológico sem vazamento | IPs, portas e `Flow ID` excluídos das features: nesta captura o endereço do atacante *é* o rótulo |
-| PR-AUC e recall a um orçamento fixo de falsos positivos, em vez de acurácia sob desbalanceamento | Avaliação contra tipos de ataque nunca vistos no treino, que é o caso que importa em produção |
-| Variância entre sementes tratada como resultado, não como detalhe | Seis defeitos documentados do dataset corrigidos e cobertos por teste |
-| Classificação multiclasse com F1 macro e teste de embaralhamento da ordem | Três protocolos de avaliação, com o vazamento entre treino e teste medido fluxo a fluxo |
+## Mobile — Gestão de Tarefas
+
+[app-gestao-tarefas-flutter](https://github.com/AlanFMF/app-gestao-tarefas-flutter) — app Flutter com login por e-mail, tarefas salvas por usuário no Cloud Firestore, calendário ligado aos vencimentos e testes de domínio.
 
 ## Stack
 
 | Área | Tecnologias |
 |---|---|
-| **Linguagens** | JavaScript · Python · PHP · Dart · C |
-| **Back-end** | Node.js · APIs REST · WebSocket · autenticação e sessões |
-| **Banco de Dados** | SQL · PostgreSQL · MySQL · modelagem e consultas SQL |
+| **Linguagens** | JavaScript · TypeScript · Python · SQL · PHP · Dart · C |
+| **Back-end** | Node.js · Fastify · APIs REST · WebSocket · JWT e sessões · Zod |
+| **Banco de Dados** | PostgreSQL · MySQL · modelagem, migrações e consultas SQL · Firebase Firestore |
+| **Front-end e mobile** | React · Vite · PWA · Capacitor (Android) · Flutter · HTML · CSS · Canvas 2D · Streamlit |
 | **Dados** | Power BI · pandas |
-| **Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · avaliação e validação de modelos |
-| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Git · GitHub Actions · pytest |
-| **Front-end** | HTML · CSS · JavaScript (ES Modules) · Canvas 2D · Streamlit |
+| **IA e Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · APIs de LLM com *tool calling* (Claude, OpenAI, Gemini) |
+| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Docker · Render · Neon · GitHub Pages |
+| **Qualidade e CI/CD** | Git · GitHub Actions · Vitest · pytest |
 
 ## Formação
 
