@@ -21,7 +21,7 @@ Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando princip
 - **Assistente por chat e voz**: a pessoa escreve ou fala "gastei 45 no mercado e 12 de uber ontem" e os lançamentos entram categorizados. Cada usuário conecta a própria IA — Claude, ChatGPT ou Gemini — por *tool calling*, com a chave cifrada em AES-256-GCM; sem chave, um interpretador por regras resolve valores por extenso, datas relativas e parcelas.
 - **Sincronização com o banco via Open Finance**: uma tarefa agendada envia as transações com uma chave de escopo mínimo, e a API concilia com o que já foi lançado à mão, evitando duplicatas.
 - **Um código, três entregas**: React + Vite como PWA no GitHub Pages, o mesmo front empacotado com Capacitor em APK, e a API no Render com banco no Neon.
-- **109 testes** com Vitest sobre um Postgres em WebAssembly (PGlite), rodando no CI a cada push; o GitHub Actions também gera o APK e publica o site.
+- **218 testes** com Vitest sobre um Postgres em WebAssembly (PGlite), rodando no CI a cada push; o GitHub Actions também gera o APK e publica o site.
 
 ## Desenvolvimento e infraestrutura — DBO IDLE
 
