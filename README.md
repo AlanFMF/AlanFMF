@@ -8,6 +8,7 @@ Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando princip
 | **[DBO IDLE](https://github.com/AlanFMF/dbo-idle-showcase)** | RPG idle multiplayer que escrevi, publiquei e operei em VPS | Node.js · PostgreSQL · WebSocket · Nginx | [Jogar](https://alanfmf.github.io/dbo-idle-play/play/) |
 | **[DBO IDLE — dados](https://github.com/AlanFMF/dbo-idle-data)** | Consultas SQL sobre o banco de produção do jogo | PostgreSQL · SQL · Python · Docker | [Repositório](https://github.com/AlanFMF/dbo-idle-data) |
 | **[ElmanGuard](https://github.com/AlanFMF/elman-guard)** | Detecção de intrusões com rede recorrente de Elman, avaliada sem vazamento | Python · TensorFlow/Keras · Streamlit | [App](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/) |
+| **[RAG + agentes](https://github.com/AlanFMF/rag-langgraph-supervisor)** | Assistente que responde sobre documentos citando a fonte, com um time de agentes coordenado por supervisor | Python · LangChain · Chroma · LangGraph · LangSmith | [Repositório](https://github.com/AlanFMF/rag-langgraph-supervisor) |
 | **[Gestão de Tarefas](https://github.com/AlanFMF/app-gestao-tarefas-flutter)** | App de tarefas com autenticação e dados por usuário | Flutter · Dart · Firebase | [Repositório](https://github.com/AlanFMF/app-gestao-tarefas-flutter) |
 
 ## Full stack — Saldo
@@ -56,6 +57,17 @@ O modelo é a parte fácil. O projeto é sobre saber se ele detecta alguma coisa
 
 Os detalhes — split cronológico, features que vazam o rótulo, defeitos do dataset corrigidos e cobertos por teste — estão no [README do projeto](https://github.com/AlanFMF/elman-guard).
 
+## IA generativa — RAG e agentes
+
+[![CI](https://github.com/AlanFMF/rag-langgraph-supervisor/actions/workflows/ci.yml/badge.svg)](https://github.com/AlanFMF/rag-langgraph-supervisor/actions/workflows/ci.yml)
+
+[rag-langgraph-supervisor](https://github.com/AlanFMF/rag-langgraph-supervisor) — assistente que responde perguntas sobre documentos internos e cita o arquivo e a página de cada informação. Funciona em dois modos: um RAG simples em LangChain e um time no LangGraph, em que um supervisor decide a cada passo se chama o agente pesquisador ou o redator.
+
+- **RAG com Chroma e ingestão incremental**: cada trecho tem um ID determinístico, então reindexar só gera embeddings do que mudou e apaga o que saiu da pasta.
+- **Supervisor previsível**: roteia com saída estruturada, mas o que dá para decidir sem LLM é decidido sem LLM, e um teto de passos garante que o grafo sempre termina.
+- **Rastreado e avaliado no LangSmith**: um dataset de perguntas compara os dois modos por fonte recuperada e por um LLM-juiz. Os dois acertaram 9 de 9, e o README registra a leitura honesta: nesse conjunto o time não traz ganho e custa mais chamadas, então o próximo passo é um conjunto de perguntas mais difícil.
+- **Provedor trocável** (OpenAI, Gemini, Anthropic ou Ollama), limitador de chamadas para cotas gratuitas e 22 testes que rodam no CI sem chave de API.
+
 ## Mobile — Gestão de Tarefas
 
 [app-gestao-tarefas-flutter](https://github.com/AlanFMF/app-gestao-tarefas-flutter) — app Flutter com login por e-mail, tarefas salvas por usuário no Cloud Firestore, calendário ligado aos vencimentos e testes de domínio.
@@ -69,7 +81,7 @@ Os detalhes — split cronológico, features que vazam o rótulo, defeitos do da
 | **Banco de Dados** | PostgreSQL · MySQL · modelagem, migrações e consultas SQL · Firebase Firestore |
 | **Front-end e mobile** | React · Vite · PWA · Capacitor (Android) · Flutter · HTML · CSS · Canvas 2D · Streamlit |
 | **Dados** | Power BI · pandas |
-| **IA e Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · APIs de LLM com *tool calling* (Claude, OpenAI, Gemini) |
+| **IA e Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · LangChain · LangGraph · LangSmith · RAG com Chroma · APIs de LLM com *tool calling* (Claude, OpenAI, Gemini) |
 | **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Docker · Render · Neon · GitHub Pages |
 | **Qualidade e CI/CD** | Git · GitHub Actions · Vitest · pytest |
 
