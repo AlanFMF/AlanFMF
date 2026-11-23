@@ -1,94 +1,71 @@
 # Alan Fabrício de Morais Filho
 
-Desenvolvedor de software com foco em Back-end e Full Stack, trabalhando principalmente com JavaScript/TypeScript, Node.js, PostgreSQL e SQL. Também atuo com dados, inteligência artificial e infraestrutura, levando projetos da ideia à produção. Em paralelo, curso duas pós-graduações — em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital — e levo cada uma até projeto publicado, não só até o certificado.
+Desenvolvedor full stack e de IA. Construo aplicações de ponta a ponta — banco de dados, API, interface, testes e deploy — e coloco em produção. Trabalho principalmente com **TypeScript, Node.js, React, Python e PostgreSQL**, integrando LLMs (Claude, ChatGPT e Gemini), RAG e agentes.
+
+Bacharel em Sistemas de Informação pela Uniube, cursando pós-graduação em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital. Antes da tecnologia, atuei com atendimento, treinamento e vendas na Algar — por isso começo pelo problema de quem vai usar.
+
+[LinkedIn](https://www.linkedin.com/in/alanfmf) · alan.fmf@hotmail.com · Uberlândia, MG
+
+## Projetos
 
 | Projeto | O que é | Stack | Ver |
 |---|---|---|---|
-| **[Saldo](https://github.com/AlanFMF/Financeiro)** | Controle financeiro web e Android com assistente de IA e sincronização bancária | TypeScript · Fastify · PostgreSQL · React · Capacitor | [App](https://alanfmf.github.io/Financeiro/app/) · [APK](https://alanfmf.github.io/Financeiro/) |
-| **[DBO IDLE](https://github.com/AlanFMF/dbo-idle-showcase)** | RPG idle multiplayer que escrevi, publiquei e operei em VPS | Node.js · PostgreSQL · WebSocket · Nginx | [Jogar](https://alanfmf.github.io/dbo-idle-play/play/) |
-| **[DBO IDLE — dados](https://github.com/AlanFMF/dbo-idle-data)** | Consultas SQL sobre o banco de produção do jogo | PostgreSQL · SQL · Python · Docker | [Repositório](https://github.com/AlanFMF/dbo-idle-data) |
-| **[ElmanGuard](https://github.com/AlanFMF/elman-guard)** | Detecção de intrusões com rede recorrente de Elman, avaliada sem vazamento | Python · TensorFlow/Keras · Streamlit | [App](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/) |
-| **[RAG + agentes](https://github.com/AlanFMF/rag-langgraph-supervisor)** | Assistente que responde sobre documentos citando a fonte, com um time de agentes coordenado por supervisor | Python · LangChain · Chroma · LangGraph · LangSmith | [Repositório](https://github.com/AlanFMF/rag-langgraph-supervisor) |
-| **[Gestão de Tarefas](https://github.com/AlanFMF/app-gestao-tarefas-flutter)** | App de tarefas com autenticação e dados por usuário | Flutter · Dart · Firebase | [Repositório](https://github.com/AlanFMF/app-gestao-tarefas-flutter) |
+| **[Saldo](https://github.com/AlanFMF/Financeiro)** | Finanças pessoais web e Android com assistente de IA, conector MCP e sincronização bancária | TypeScript · Fastify · React · PostgreSQL · MCP | [App](https://alanfmf.github.io/Financeiro/app/) · [APK](https://alanfmf.github.io/Financeiro/) |
+| **[RAG + agentes](https://github.com/AlanFMF/rag-langgraph-supervisor)** | Responde sobre documentos citando a fonte, com um time de agentes coordenado por supervisor | Python · LangChain · Chroma · LangGraph · LangSmith | [Repositório](https://github.com/AlanFMF/rag-langgraph-supervisor) |
+| **[ElmanGuard](https://github.com/AlanFMF/elman-guard)** | Detecção de intrusões com rede recorrente, avaliada sem vazamento | Python · TensorFlow/Keras · Streamlit | [App](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/) |
+| **[DBO IDLE](https://github.com/AlanFMF/dbo-idle-showcase)** | RPG multiplayer que escrevi, publiquei e operei em VPS | Node.js · PostgreSQL · WebSocket · Nginx | [Jogar](https://alanfmf.github.io/dbo-idle-play/play/) |
+| **[DBO IDLE — dados](https://github.com/AlanFMF/dbo-idle-data)** | Análises em SQL sobre o banco do jogo | PostgreSQL · SQL · Python | [Repositório](https://github.com/AlanFMF/dbo-idle-data) |
+| **[Gestão de Tarefas](https://github.com/AlanFMF/app-gestao-tarefas-flutter)** | App de tarefas com login e dados por usuário | Flutter · Firebase | [Repositório](https://github.com/AlanFMF/app-gestao-tarefas-flutter) |
 
-## Full stack — Saldo
+## Saldo — finanças pessoais com assistente de IA
 
 [![CI](https://github.com/AlanFMF/Financeiro/actions/workflows/ci.yml/badge.svg)](https://github.com/AlanFMF/Financeiro/actions/workflows/ci.yml)
 [![Android e Pages](https://github.com/AlanFMF/Financeiro/actions/workflows/android.yml/badge.svg)](https://github.com/AlanFMF/Financeiro/actions/workflows/android.yml)
 
-[Financeiro](https://github.com/AlanFMF/Financeiro) — controle de receitas e gastos que nasceu da minha planilha e virou um app que uso no dia a dia: no navegador, instalado como PWA ou como APK no Android. **[Abrir o app](https://alanfmf.github.io/Financeiro/app/)** (tem modo demonstração) · **[Baixar o APK](https://alanfmf.github.io/Financeiro/)**
+Nasceu da minha planilha e virou o app que uso todo dia. **[Abrir o app](https://alanfmf.github.io/Financeiro/app/)** (tem modo demonstração) · **[Baixar o APK](https://alanfmf.github.io/Financeiro/)**
 
-- **API em Node.js + TypeScript** com Fastify, validação com Zod, JWT, rate limit e PostgreSQL com migrações versionadas. Valores guardados em centavos inteiros, nunca em ponto flutuante.
-- **Assistente por chat e voz**: a pessoa escreve ou fala "gastei 45 no mercado e 12 de uber ontem" e os lançamentos entram categorizados. Cada usuário conecta a própria IA — Claude, ChatGPT ou Gemini — por *tool calling*, com a chave cifrada em AES-256-GCM; sem chave, um interpretador por regras resolve valores por extenso, datas relativas e parcelas.
-- **Sincronização com o banco via Open Finance**: uma tarefa agendada envia as transações com uma chave de escopo mínimo, e a API concilia com o que já foi lançado à mão, evitando duplicatas.
-- **Um código, três entregas**: React + Vite como PWA no GitHub Pages, o mesmo front empacotado com Capacitor em APK, e a API no Render com banco no Neon.
-- **218 testes** com Vitest sobre um Postgres em WebAssembly (PGlite), rodando no CI a cada push; o GitHub Actions também gera o APK e publica o site.
-
-## Desenvolvimento e infraestrutura — DBO IDLE
-
-Um RPG idle multiplayer de navegador que escrevi, publiquei e operei sozinho: frontend em ES Modules, backend Node.js com autoridade de servidor, PostgreSQL, WebSocket, pagamentos com Mercado Pago e uma VPS Ubuntu com Nginx, PM2, HTTPS e backup automatizado.
-
-Rodou como piloto fechado por 15 dias em produção, e os números são medidos, não estimados:
-
-| | |
-|---|---:|
-| Requisições HTTP atendidas | 64.417 |
-| Tempo de resposta (mediana) | 58 ms |
-| Tabelas em produção | 20 |
-| Eventos de segurança registrados | 576 |
-
-- **[dbo-idle-showcase](https://github.com/AlanFMF/dbo-idle-showcase)** — estudo de caso: arquitetura, decisões técnicas, infraestrutura, métricas reais e trechos do código de produção.
-- **[dbo-idle-play](https://github.com/AlanFMF/dbo-idle-play)** — a versão jogável, convertida para rodar inteira no navegador depois que o servidor foi desligado. **[Jogar](https://alanfmf.github.io/dbo-idle-play/play/)**
-- **[dbo-idle-data](https://github.com/AlanFMF/dbo-idle-data)** — consultas SQL sobre o banco do jogo: economia, retenção, drops, pagamentos e integridade, sobre o schema real e dados sintéticos.
-
-## Inteligência artificial e segurança — ElmanGuard
-
-[![Abrir o app](https://img.shields.io/badge/Streamlit-abrir_o_app-ff4b4b?logo=streamlit&logoColor=white)](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/)
-[![Testes](https://github.com/AlanFMF/elman-guard/actions/workflows/tests.yml/badge.svg)](https://github.com/AlanFMF/elman-guard/actions/workflows/tests.yml)
-
-[elman-guard](https://github.com/AlanFMF/elman-guard) — detecção de intrusões em tráfego de rede com uma rede recorrente de Elman, sobre o CICIDS2017. [Teste o app online](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/), sem instalar nada.
-
-O modelo é a parte fácil. O projeto é sobre saber se ele detecta alguma coisa de verdade:
-
-- **O protocolo de avaliação decide o número.** O mesmo modelo marca PR-AUC de 0,74 com split aleatório, 0,67 com split temporal sem vazamento e 0,34 quando os tipos de ataque são inéditos. No split aleatório, 66% das janelas de teste compartilham algum fluxo com o treino.
-- Medido **dentro de cada servidor**, o desempenho diante de ataques inéditos some: quase todo o PR-AUC agregado era reconhecer *qual máquina* enviou a janela.
-- Uma **regressão logística vence as redes neurais nos três protocolos**, e com ataques inéditos as quatro redes ficam dentro do próprio ruído entre sementes.
-- Antes de concluir que a recorrência não ajuda, o experimento é **aferido numa sonda onde a ordem temporal é o único sinal** — a primeira configuração teria produzido um resultado nulo confiante e falso.
-
-Os detalhes — split cronológico, features que vazam o rótulo, defeitos do dataset corrigidos e cobertos por teste — estão no [README do projeto](https://github.com/AlanFMF/elman-guard).
+- **Assistente por chat e voz:** "gastei 45 no mercado e 12 de uber ontem" vira lançamentos categorizados. Cada usuário conecta a própria IA (Claude, ChatGPT ou Gemini) por *tool calling*, e a IA só age por ferramentas validadas pela API.
+- **Em qualquer lugar:** as mesmas ferramentas servidas por **MCP** como conector do Claude, e bots no **Telegram** e no **WhatsApp**, com áudio transcrito.
+- **Open Finance sem duplicatas:** uma tarefa agendada envia as transações do banco e a API concilia com o que já foi lançado à mão.
+- **Segurança:** chaves de IA cifradas em AES-256-GCM, tokens de menor privilégio guardados como hash, isolamento por usuário testado e webhooks validados por HMAC.
+- **Um código, três entregas:** PWA no GitHub Pages, APK Android com Capacitor e API no Render com banco no Neon.
+- **Qualidade:** 218 testes (Vitest sobre PGlite), Playwright num celular emulado, fumaça num PostgreSQL 16 real e APK gerado no CI a cada push.
 
 ## IA generativa — RAG e agentes
 
 [![CI](https://github.com/AlanFMF/rag-langgraph-supervisor/actions/workflows/ci.yml/badge.svg)](https://github.com/AlanFMF/rag-langgraph-supervisor/actions/workflows/ci.yml)
 
-[rag-langgraph-supervisor](https://github.com/AlanFMF/rag-langgraph-supervisor) — assistente que responde perguntas sobre documentos internos e cita o arquivo e a página de cada informação. Funciona em dois modos: um RAG simples em LangChain e um time no LangGraph, em que um supervisor decide a cada passo se chama o agente pesquisador ou o redator.
+Assistente que responde perguntas sobre documentos e cita arquivo e página. Dois modos: RAG simples em LangChain e um time no LangGraph em que um supervisor decide a cada passo entre o agente pesquisador e o redator.
 
-- **RAG com Chroma e ingestão incremental**: cada trecho tem um ID determinístico, então reindexar só gera embeddings do que mudou e apaga o que saiu da pasta.
-- **Supervisor previsível**: roteia com saída estruturada, mas o que dá para decidir sem LLM é decidido sem LLM, e um teto de passos garante que o grafo sempre termina.
-- **Rastreado e avaliado no LangSmith**: um dataset de perguntas compara os dois modos por fonte recuperada e por um LLM-juiz. Os dois acertaram 9 de 9, e o README registra a leitura honesta: nesse conjunto o time não traz ganho e custa mais chamadas, então o próximo passo é um conjunto de perguntas mais difícil.
-- **Provedor trocável** (OpenAI, Gemini, Anthropic ou Ollama), limitador de chamadas para cotas gratuitas e 22 testes que rodam no CI sem chave de API.
+- **RAG com Chroma e ingestão incremental:** IDs determinísticos, então reindexar só processa o que mudou.
+- **Supervisor previsível:** saída estruturada, decisões sem LLM quando possível e teto de passos.
+- **Avaliado no LangSmith** com LLM-juiz: os dois modos acertaram 9 de 9, e o README explica por que, aqui, o time não compensa o custo extra.
+- Provedor trocável (OpenAI, Gemini, Anthropic ou Ollama) e 22 testes no CI sem chave de API.
 
-## Mobile — Gestão de Tarefas
+## IA e segurança — ElmanGuard
 
-[app-gestao-tarefas-flutter](https://github.com/AlanFMF/app-gestao-tarefas-flutter) — app Flutter com login por e-mail, tarefas salvas por usuário no Cloud Firestore, calendário ligado aos vencimentos e testes de domínio.
+[![Abrir o app](https://img.shields.io/badge/Streamlit-abrir_o_app-ff4b4b?logo=streamlit&logoColor=white)](https://elman-guard-apps4fvjn5n5fsk4kb9v2wv.streamlit.app/)
+[![Testes](https://github.com/AlanFMF/elman-guard/actions/workflows/tests.yml/badge.svg)](https://github.com/AlanFMF/elman-guard/actions/workflows/tests.yml)
+
+Detecção de intrusões em tráfego de rede (CICIDS2017) com rede recorrente de Elman. O modelo é a parte fácil; o projeto é sobre saber se ele detecta algo de verdade:
+
+- **O protocolo decide o número:** o mesmo modelo marca PR-AUC de 0,74 com split aleatório, 0,67 com split temporal e 0,34 com ataques inéditos.
+- **O ganho era reconhecer a máquina, não o ataque**, e uma regressão logística vence as redes neurais nos três protocolos.
+
+## Desenvolvimento e infraestrutura — DBO IDLE
+
+RPG idle multiplayer que escrevi, publiquei e operei sozinho: Node.js com autoridade de servidor, PostgreSQL, WebSocket, pagamentos com Mercado Pago e VPS Ubuntu com Nginx, PM2, HTTPS e backup automatizado. Em 15 dias de piloto em produção: **64.417 requisições**, **mediana de 58 ms**, 20 tabelas e 576 eventos de segurança registrados.
+
+[Estudo de caso](https://github.com/AlanFMF/dbo-idle-showcase) · [Versão jogável](https://github.com/AlanFMF/dbo-idle-play) · [Análises em SQL](https://github.com/AlanFMF/dbo-idle-data)
 
 ## Stack
 
 | Área | Tecnologias |
 |---|---|
-| **Linguagens** | JavaScript · TypeScript · Python · SQL · PHP · Dart · C |
-| **Back-end** | Node.js · Fastify · APIs REST · WebSocket · JWT e sessões · Zod |
-| **Banco de Dados** | PostgreSQL · MySQL · modelagem, migrações e consultas SQL · Firebase Firestore |
-| **Front-end e mobile** | React · Vite · PWA · Capacitor (Android) · Flutter · HTML · CSS · Canvas 2D · Streamlit |
-| **Dados** | Power BI · pandas |
-| **IA e Machine Learning** | TensorFlow/Keras · scikit-learn · séries temporais · LangChain · LangGraph · LangSmith · RAG com Chroma · APIs de LLM com *tool calling* (Claude, OpenAI, Gemini) |
-| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS/Certbot · Docker · Render · Neon · GitHub Pages |
-| **Qualidade e CI/CD** | Git · GitHub Actions · Vitest · pytest |
-
-## Formação
-
-Bacharel em Sistemas de Informação pela Uniube. Cursando duas pós-graduações, em Inteligência Artificial e Redes Neurais e em Segurança da Informação e Forense Digital.
-
-## Contato
-
-[LinkedIn](https://www.linkedin.com/in/alanfmf) · alan.fmf@hotmail.com · Uberlândia, MG
+| **Linguagens** | TypeScript · JavaScript · Python · SQL · Dart · PHP · C |
+| **Back-end** | Node.js · Fastify · APIs REST · WebSocket · SSE · JWT · Zod |
+| **Front-end e mobile** | React · Vite · PWA · Capacitor (Android) · Flutter · Streamlit |
+| **Banco de dados** | PostgreSQL · MySQL · Firestore · modelagem, migrações e SQL |
+| **IA** | APIs do Claude, OpenAI e Gemini com *tool calling* · MCP · LangChain · LangGraph · LangSmith · RAG com Chroma · TensorFlow/Keras · scikit-learn · pandas |
+| **Infraestrutura** | Linux · Nginx · PM2 · HTTPS · Docker · Render · Neon · GitHub Pages |
+| **Qualidade e CI/CD** | Git · GitHub Actions · Vitest · Playwright · pytest |
